@@ -29,7 +29,7 @@
              else  {
                 var x1= (-b- Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
                 var x2= (-b+ Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
-                outputText= "For the equation "+a+ "x\u00B2+"+ b+ "x+ "+c+"=0, x can equal "+x1+" or "+x2+"."
+                outputText= "For the differential equation "+a+ "x''+"+ b+ "x'+ "+c+"x=0, the general solution is ce^("+x1+"t) or de^("+x2+"t), where c and d are constants."
              }
 
             //calculate result
@@ -40,7 +40,7 @@
 </head>
 <body>
     <p>Enter the coefficients a, b, and c of a 2nd Order Homoegneous,
-    Linear Differential equation of the form ax&#x00B2+bx+c.</p>
+    Linear Differential equation of the form ax''+bx'+cx=0.</p>
     <form name="input_form" action="javascript:validate();">
         a: <input type="text" name="coefficient1" size="7" required>
         b: <input type="text" name="coefficient2" size="7" required>
