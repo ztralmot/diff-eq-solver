@@ -7,17 +7,41 @@
     <title>Second Order Homogeneous, Linear Differential Equation Solver</title>
     <script>
         var a,b,c;
-        var output;
+        var outputText;
 
         function validate() {
+            //getting input
+            a=document.forms["input_form"]["coefficient1"].value;
+            b=document.forms["input_form"]["coefficient2"].value;
+            c=document.forms["input_form"]["coefficient3"].value;
+            //validate variables
+            if (a==0) { 
+                outputText= "a cannot equal zero";
+            } else if (isNaN(a)) {
+                outputText = "a must be a number!";
+            }
+             else if (isNaN(b)) {
+                outputText = "a must be a number!";
+            }
+             else if (isNaN(c)) {
+                outputText = "a must be a number!";
+            }
+             else  {
+                var x1= (-b- Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+                var x2= (-b+ Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+                outputText= "For the equation "+a+ "x\u00B2+"+ b+ "x+ "+c+"=0, x can equal "+x1+" or "+x2+"."
+             }
 
+            //calculate result
+            //output result
+            document.getElementById("output_text").innerHTML = outputText;
         }
     </script>
 </head>
 <body>
     <p>Enter the coefficients a, b, and c of a 2nd Order Homoegneous,
     Linear Differential equation of the form ax&#x00B2+bx+c.</p>
-    <form name="input_form"="javascript:validate();">
+    <form name="input_form" action="javascript:validate();">
         a: <input type="text" name="coefficient1" size="7" required>
         b: <input type="text" name="coefficient2" size="7" required>
         b: <input type="text" name="coefficient3" size="7" required>
@@ -25,7 +49,6 @@
         <br>
         <input type="submit" value="Calculate">
     </form>
-    
     <p id="output_text"></p>
 </body>
 </html>
